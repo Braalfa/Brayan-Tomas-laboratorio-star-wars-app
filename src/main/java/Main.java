@@ -29,7 +29,7 @@ public class Main {
                     var result = EntityUtils.toString(entity);
                     ApiResponse<Character> parsedResponse = mapper.readValue(
                             result, mapper.getTypeFactory().constructParametricType(ApiResponse.class, Character.class));
-                    System.out.println(result);
+                    new Interface(parsedResponse.getResults());
                 }
             } finally {
                 response.close();
