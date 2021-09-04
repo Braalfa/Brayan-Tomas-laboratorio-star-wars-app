@@ -5,11 +5,15 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 
 public class Main {
     private static ObjectMapper mapper = new ObjectMapper();
+    private static final Logger logger
+            = LoggerFactory.getLogger(Main.class);
 
     public static void main(String[] args) throws IOException, IOException {
         CloseableHttpClient httpClient = HttpClients.createDefault();
@@ -31,9 +35,16 @@ public class Main {
                             result, mapper.getTypeFactory().constructParametricType(ApiResponse.class, Character.class));
                     new Interface(parsedResponse.getResults());
                 }
+                Integer a =6;
+                a = null;
+                a+=1;
+            }catch(Exception e){
+                logger.info(e.getMessage(), Main.class.getSimpleName());
             } finally {
                 response.close();
             }
+        }catch(Exception e){
+            logger.info(e.getMessage(), Main.class.getSimpleName());
         } finally {
             httpClient.close();
         }
