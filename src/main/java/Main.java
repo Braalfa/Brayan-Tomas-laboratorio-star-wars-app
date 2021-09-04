@@ -39,4 +39,8 @@ public class Main {
             httpClient.close();
         }
     }
+
+    public static int suma(int a,int b){
+        return a+b;
+    }
 }
