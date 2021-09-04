@@ -33,7 +33,7 @@ public class Main {
                     var result = EntityUtils.toString(entity);
                     ApiResponse<Character> parsedResponse = mapper.readValue(
                             result, mapper.getTypeFactory().constructParametricType(ApiResponse.class, Character.class));
-                    new Interface(parsedResponse.getResults());
+                   // new Interface(parsedResponse.getResults());
                 }
                 Integer a =6;
                 a = null;
@@ -49,4 +49,8 @@ public class Main {
             httpClient.close();
         }
     }
+    public static int suma(int a,int b){
+        return a+b;
+    }
+
 }
